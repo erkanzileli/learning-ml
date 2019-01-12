@@ -44,10 +44,12 @@ Y_test= sc.fit_transform(y_test)
 '''
 from sklearn.linear_model import LinearRegression
 lr = LinearRegression()
-lr.fit(x_train, y_train)
+lr.fit(X_train, Y_train)
 
-predict = lr.predict(x_test)
-score = lr.score(predict, y_test)
+predict = lr.predict(X_test)
+score = lr.score(predict, Y_test)
+print('predict', predict)
+print('score', score)
 
 '''
     Grafik oluşturma
@@ -56,8 +58,8 @@ score = lr.score(predict, y_test)
 x_train = x_train.sort_index()
 y_train = y_train.sort_index()
 
-plt.plot(x_train, y_train)
-plt.plot(x_test, lr.predict(x_test))
+plt.plot(X_train, Y_train)
+plt.plot(X_test, lr.predict(Y_test))
 plt.title('Aylara Göre Satışlar')
 plt.xlabel('Aylar')
 plt.ylabel('Satışlar')
